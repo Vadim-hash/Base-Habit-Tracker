@@ -1,0 +1,13 @@
+const hre = require("hardhat");
+
+async function main() {
+  const Tracker = await hre.ethers.getContractFactory("ZenithHabitTracker");
+  const tracker = await Tracker.deploy();
+  await tracker.deployed();
+  console.log("Tracker deployed to:", tracker.address);
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
